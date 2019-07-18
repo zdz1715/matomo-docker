@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    image: matomo:fpm-alpine
+    restart: always
+    volumes:
+      - ./app:/var/www/html
+      - ./php/php.ini:/usr/local/etc/php/php.ini
+      - ./crontab/root.cron:/etc/crontabs/root
+    command: ["sh", "-c", "crond ; php-fpm"]
+  web:
+    image: nginx:alpine
+    restart: always
+    volumes:
+      - ./app:/var/www/html:ro
+      - ./nginx/matomo.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - 8080:80
