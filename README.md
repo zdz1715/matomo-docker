@@ -3,7 +3,7 @@
 
 ## 使用
 ``docker-compose up -d ``
-后，用浏览器打开http://localhost:8080进行安装
+后，用浏览器打开 <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>  进行安装
 ## php配置文件
 ``php/php.ini``
 
