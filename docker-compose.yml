@@ -6,6 +6,7 @@ services:
     volumes:
       - ./app:/var/www/html
       - ./php/php.ini:/usr/local/etc/php/php.ini
+      - ./php/php-fpm.conf:/usr/local/etc/php-fpm.d/zz-docker.conf
       - ./crontab/root.cron:/etc/crontabs/root
     command: ["sh", "-c", "crond ; php-fpm"]
   web:
